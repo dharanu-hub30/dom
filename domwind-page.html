@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WindWave DOM Lab | Wind Energy for Smart Cities</title>
+  <meta name="description" content="Usage of DOM elements for user interactions, shown through a wind energy smart city interface." />
+  <link rel="stylesheet" href="domwind-style.css" />
+</head>
+<body>
+  <header class="dwx-hero">
+    <div class="dwx-hero-inner">
+      <p class="dwx-eyebrow">Practicum &middot; DOM &amp; Smart City Energy</p>
+      <h1>Wind<span>Wave</span> DOM Lab</h1>
+      <p class="dwx-lead">Harnessing wind energy for smart cities, with every interaction powered by the DOM.</p>
+      <nav>
+        <a href="#theory">VI. Theory</a>
+        <a href="#setup">VII. Set-up</a>
+        <a href="#lab">Live Interactions</a>
+      </nav>
+    </div>
+
+    <div class="dwx-turbines" aria-hidden="true">
+      <svg class="dwx-turbine dwx-t1" viewBox="0 0 100 160">
+        <path class="dwx-tower" d="M48 66 L52 66 L56 160 L44 160 Z" />
+        <g class="dwx-blades">
+          <path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" />
+          <path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(120 50 60)" />
+          <path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(240 50 60)" />
+        </g>
+        <circle cx="50" cy="60" r="4.5" class="dwx-hub" />
+      </svg>
+      <svg class="dwx-turbine dwx-t2" viewBox="0 0 100 160">
+        <path class="dwx-tower" d="M48 66 L52 66 L56 160 L44 160 Z" />
+        <g class="dwx-blades">
+          <path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" />
+          <path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(120 50 60)" />
+          <path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(240 50 60)" />
+        </g>
+        <circle cx="50" cy="60" r="4.5" class="dwx-hub" />
+      </svg>
+    </div>
+
+    <div class="dwx-waves" aria-hidden="true">
+      <svg class="dwx-wave dwx-wave-back" viewBox="0 0 2880 80" preserveAspectRatio="none">
+        <path d="M0 40 Q180 0 360 40 T720 40 T1080 40 T1440 40 T1800 40 T2160 40 T2520 40 T2880 40 V80 H0 Z" />
+      </svg>
+      <svg class="dwx-wave dwx-wave-front" viewBox="0 0 2880 80" preserveAspectRatio="none">
+        <path d="M0 40 Q180 0 360 40 T720 40 T1080 40 T1440 40 T1800 40 T2160 40 T2520 40 T2880 40 V80 H0 Z" />
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <section id="theory" class="dwx-card">
+      <h2><span>VI.</span> Minimum Underpinning Theory</h2>
+      <p>
+        The minimum underpinning theory for the usage of DOM (Document Object Model) elements in user
+        interactions is based on understanding the hierarchical structure of HTML documents and how
+        JavaScript can access, traverse, and manipulate this structure to respond to user interactions.
+      </p>
+      <p>
+        The DOM represents the content of a webpage as a tree of objects, where each node corresponds to
+        a part of the document such as elements, attributes, or text. JavaScript interacts with the DOM
+        using methods like <code>getElementById</code>, <code>querySelector</code>, and
+        <code>addEventListener</code> to select elements, change content or styles, and attach event
+        handlers. This enables developers to implement dynamic behaviors, such as showing or hiding
+        content, validating user input, or updating information in real time. Mastery of DOM concepts and
+        event handling is essential for creating responsive, interactive web applications that react to
+        user actions without requiring a full page reload, thereby improving performance and user
+        experience.
+      </p>
+      <ul class="dwx-pills">
+        <li>getElementById</li>
+        <li>querySelector</li>
+        <li>addEventListener</li>
+        <li>Traversal</li>
+        <li>Real-time updates</li>
+      </ul>
+    </section>
+
+    <section id="setup" class="dwx-card">
+      <h2><span>VII.</span> Practicum Set-up</h2>
+      <div class="dwx-summary">
+        <h3>Usage of DOM Elements for User Interactions</h3>
+        <ul>
+          <li><strong>Interactive Form</strong><span>Access DOM elements to validate form input</span></li>
+          <li><strong>Dropdown Menu</strong><span>Modify DOM elements to toggle menu visibility</span></li>
+          <li><strong>Modal</strong><span>Manipulate DOM elements to display modal</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lab" class="dwx-card">
+      <h2>Live Interactions: Plan a Wind Site</h2>
+      <p class="dwx-sub">Each panel below uses a different DOM technique. Watch the activity log to see which one fires.</p>
+
+      <div class="dwx-grid">
+        <!-- 1. Interactive form -->
+        <article class="dwx-panel">
+          <h3>1. Interactive form</h3>
+          <p class="dwx-tag">Access elements &rarr; validate input</p>
+          <form id="dwx-form" novalidate>
+            <label for="dwx-name">Your name</label>
+            <input id="dwx-name" type="text" placeholder="e.g. Asha" autocomplete="name" />
+            <small class="dwx-err" id="dwx-name-err" role="alert"></small>
+
+            <label for="dwx-email">Email</label>
+            <input id="dwx-email" type="email" placeholder="asha@example.com" autocomplete="email" />
+            <small class="dwx-err" id="dwx-email-err" role="alert"></small>
+
+            <label for="dwx-speed">Average wind speed (m/s)</label>
+            <input id="dwx-speed" type="number" placeholder="3 to 25" />
+            <small class="dwx-err" id="dwx-speed-err" role="alert"></small>
+
+            <button class="dwx-btn" type="submit">Request site survey</button>
+            <p class="dwx-ok" id="dwx-form-ok" role="status"></p>
+          </form>
+        </article>
+
+        <!-- 2. Dropdown menu -->
+        <article class="dwx-panel">
+          <h3>2. Dropdown menu</h3>
+          <p class="dwx-tag">Modify elements &rarr; toggle visibility</p>
+          <div class="dwx-dropdown" id="dwx-dropdown">
+            <button class="dwx-btn dwx-drop-btn" id="dwx-drop-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span id="dwx-drop-label">Choose a city district</span> <span class="dwx-caret">&#9662;</span>
+            </button>
+            <ul class="dwx-menu" id="dwx-menu" role="listbox" hidden>
+              <li role="option" tabindex="0" data-district="Harbour Front" data-advice="Coastal turbines catch strong sea breezes all day.">Harbour Front</li>
+              <li role="option" tabindex="0" data-district="Tech Park" data-advice="Rooftop vertical-axis turbines suit tall, dense buildings.">Tech Park</li>
+              <li role="option" tabindex="0" data-district="Old Town" data-advice="Small, low-noise urban turbines respect heritage streets.">Old Town</li>
+              <li role="option" tabindex="0" data-district="Green Belt" data-advice="Large horizontal-axis turbines fit open land best.">Green Belt</li>
+            </ul>
+          </div>
+          <p class="dwx-result" id="dwx-drop-result">No district selected yet.</p>
+        </article>
+
+        <!-- 3. Modal -->
+        <article class="dwx-panel">
+          <h3>3. Modal</h3>
+          <p class="dwx-tag">Manipulate elements &rarr; display modal</p>
+          <p>Open a pop-up whose content is built from what you chose above.</p>
+          <button class="dwx-btn" id="dwx-open-modal" type="button">Show site summary</button>
+        </article>
+      </div>
+
+      <div class="dwx-log-wrap">
+        <h3>DOM activity log</h3>
+        <ul id="dwx-log" class="dwx-log" aria-live="polite">
+          <li>Waiting for interaction...</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="dwx-modal" class="dwx-modal" role="dialog" aria-modal="true" aria-labelledby="dwx-modal-title" hidden>
+    <div class="dwx-modal-box">
+      <h3 id="dwx-modal-title">Site summary</h3>
+      <p id="dwx-modal-body"></p>
+      <button class="dwx-btn" id="dwx-close-modal" type="button">Close</button>
+    </div>
+  </div>
+
+  <footer class="dwx-footer">WindWave DOM Lab &middot; Wind energy for smart cities &middot; Built with HTML, CSS and JavaScript</footer>
+
+  <script src="domwind-script.js"></script>
+</body>
+</html>
